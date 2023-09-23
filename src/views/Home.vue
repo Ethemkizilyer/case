@@ -1,5 +1,6 @@
 <template>
   <aside class="w-full overflow-hidden">
+     <Search @input-value="(e) => (search = e)" />
     <div class="min-h-[40rem]">
       <MainMovieVue v-if="mainMovie" :main-movie="mainMovie" ></MainMovieVue>
     </div>
@@ -14,15 +15,29 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref, watch  } from 'vue'
 import useMovies from '../custom/useMovies'
 import MovieCardVue from '../components/MovieCard.vue';
 import MainMovieVue from '../components/MainMovie.vue';
+import Search from '../components/Search.vue';
 
-const { movies, tvShows, mainMovie, getMoviesList } = useMovies()
+const { movies, tvShows, mainMovie, getMoviesList, filterMovies, getGenresList  } = useMovies()
+const search = ref()
+const filteredMovies = ref([])
+const genres = ref()
+const filterValue = ref(0)
 
+watch(search, () => {
+  filteredMovies.value = filterMovies(search.value, 'name')
+})
+
+watch(filterValue, () => {
+  filteredMovies.value = filterMovies(filterValue.value, 'genre')
+})
 onMounted(async () => {
   await getMoviesList()
+  filteredMovies.value = await getMoviesList()
+  genres.value = await getGenresList()
 //   await getTvShowList()
 //   await getRandomMovie(movies)
 })
