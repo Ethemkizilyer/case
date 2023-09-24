@@ -2,7 +2,7 @@
     <div class="px-4 py-4 main">
     <div class="row">
         <div v-if="favorites.favorites.length === 0" class="text-center text-xl text-gray-500 col-span-5">
-    Favorileriniz boş.
+    Your favorites are empty.
   </div>
 <div v-else v-for="movie in favorites.favorites" class="col-md-2 mb-4">
        

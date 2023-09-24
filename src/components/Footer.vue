@@ -1,17 +1,17 @@
 <script>
-import { RouterLink, RouterView } from "vue-router";
+
 
 </script>
 <template>
-<div class="bg-dark position-fixed bottom-0 w-100">
+<div class="bg-dark position-fixed bottom-0 asd">
   <div class="p-4">
     <div class="row">
-      <div class="col-12 col-sm-8">
+      <div class="col-6">
         <div class="row mt-2">
           <p class="text-white text-sm">ETHM KZLYR</p>
         </div>
       </div>
-      <div class="col-12 col-sm-4 ">
+      <div class="col-6">
         
         <div class="d-flex mt-2 align-items-center gap-2 justify-content-end">
             <RouterLink to="/">
