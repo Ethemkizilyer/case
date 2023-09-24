@@ -31,12 +31,12 @@ export default {
 };
 </script>
 <template>
-   <div class="container mt-5 main">
+   <div class="main overflow-hidden">
   <div class="row">
     <div class="col-md-4">
       <img :src="getImageUrl(movieDetail.poster_path)" alt="Movie Poster" class="img-fluid rounded-lg shadow-lg">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 p-4 ">
       <h1 class="display-4 font-weight-bold">{{ movieDetail.title }}</h1>
       <h2 class="display-5 font-weight-bold">{{ movieDetail.tagline }}</h2>
       <p class="lead"><strong>Release Date:</strong> {{ formatDate(movieDetail.release_date) }}</p>
@@ -46,7 +46,7 @@ export default {
       <div class="d-flex align-items-center mt-4">
         <p class="text-muted mr-2"><strong>Vote Average:</strong></p>
         <div class="d-flex align-items-center">
-          <span class="text-warning h3 mr-1">{{ Math.floor(movieDetail.vote_average * 10) / 10 }}</span>
+          <span class="text-warning h3 mx-2 pb-1">{{ Math.floor(movieDetail.vote_average * 10) / 10 }}</span>
           <div class="d-flex">
             <template v-for="i in 5">
               <svg v-if="i <= Math.floor(movieDetail.vote_average)"
