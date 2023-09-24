@@ -1,31 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Favorites from '../views/Favorites.vue'
-import { useFavorites } from '../stores/counter'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import DetailView from "../views/DetailView.vue";
+import FavoritesView from "../views/FavoritesView.vue";
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: "/",
+      name: "home",
+      component: HomeView,
     },
     {
-      path: '/favorites',
-      name: 'favorites',
-      component: Favorites
+      path: "/favorites",
+      name: "favorites",
+      component: FavoritesView,
     },
     {
-      path: '/movies/:id',
-      component: () => import('../views/Detail.vue')
-    }
-  ]
-})
+      path: "/:id",
+      name: "detail",
+      component: DetailView,
+    },
+  ],
+});
 
-router.beforeEach(() => {
-  useFavorites().handleStorage()
-  window.scrollTo(0, 0)
-})
-
-export default router
+export default router;
