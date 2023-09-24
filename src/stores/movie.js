@@ -28,7 +28,7 @@ export const useMovieStore = defineStore('movie', {
     swalErrorNotification(error) {
       const Toast = Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'top',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
@@ -46,7 +46,7 @@ export const useMovieStore = defineStore('movie', {
     swalNotification(title) {
       const Toast = Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'top',
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
