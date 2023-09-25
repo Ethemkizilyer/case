@@ -3,7 +3,7 @@
 
 </script>
 <template>
-<div class="bg-dark position-fixed bottom-0 asd">
+<div class="bg-dark  bottom-0 asd">
   <div class="p-4">
     <div class="row">
       <div class="col-6">
