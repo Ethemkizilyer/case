@@ -19,6 +19,11 @@ export const useMovieStore = defineStore('movie', {
   }),
 
   actions: {
+    loadFavorites(){
+      if(localStorage.getItem("movies")){
+        this.favorites=JSON.parse(localStorage.getItem("movies"))
+      }
+    },
     swalSuccess(title, message) {
       Swal.fire(title, message, 'success')
     },
@@ -82,6 +87,7 @@ export const useMovieStore = defineStore('movie', {
           method: 'get',
           url: this.baseUrl + page
         })
+        // this.loadFavorites()
         console.log(data)
         this.moviesResult = data.results
         this.totalPage = data.total_pages
